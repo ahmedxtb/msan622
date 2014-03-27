@@ -57,7 +57,7 @@ The color rank column was used as the colors in the images, and `scale_colour_br
 
 ![IMAGE](hw1-scatter.png)
 
-For the scatter above, I devided the values of x-axis text by 1000000, and added "(Million Dollars)" to the x-axis titles. I also changed the labels and name of the legend to make it more readable.
+For the scatter above, I devided the values of x-axis text by 1000000, and added "(Million Dollars)" to the x-axis label. I also changed the labels and name of the legend to make it more readable.
 
 ![IMAGE](hw1-bar.png)
 
@@ -65,7 +65,7 @@ For the bar chart above, to emphasize which genre has more movies, I ordered the
 
 ![IMAGE](hw1-multiples.png)
 
-For the multiple scatters above, I reordered the small scatters so that the orders of genres are consistent with those in the bar chart. Now, it is clear that the genre on the top and left has the largest number of movies, and the genre on the bottom and right has the smallest number of movies. It is also consistent with the color gradients.
+For the multiple scatters above, I reordered the small scatters so that the orders of genres are consistent with those in the bar chart. Now, it is clear that the genre on the top and left has the largest number of movies, and the genre on the bottom and right has the smallest number of movies. They are also consistent with the color gradients.
 
 ![IMAGE](hw1-multiline.png)
 
