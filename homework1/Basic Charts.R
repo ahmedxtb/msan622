@@ -27,7 +27,7 @@ movies$genre <- as.factor(genre)
 eu <- transform(data.frame(EuStockMarkets), time = time(EuStockMarkets))
 
 
-#################################################3
+#################################################
 # Visualizations
 
 # Choose colors for movie genre 
@@ -42,28 +42,37 @@ movies$genre <- factor(movies$genre, levels=genre_count$genre)
 # Plot 1: Scatterplot
 scatterplot <- ggplot(movies, aes(x = budget/1000000, y = rating, color=as.factor(color))) + 
   geom_point() +
-  ggtitle("Movie ratings versus budget") +
-  xlab("Budget (Million Dollars)") + 
+  ggtitle("Movie Ratings vs Budget") +
+  xlab("Budget in Millions") +
   ylab("Rating") +
   theme(axis.text=element_text(family="serif", size=10),
-        axis.title=element_text(family="serif", size=12),
-        title=element_text(family="serif", size=16,face="bold")) +
+        axis.title=element_text(family="serif", size=11),
+        title=element_text(family="serif", size=15 ,face="bold")) +
   scale_colour_brewer(palette="RdYlGn", labels=genre_count$genre, name="Genre")
 
 print(scatterplot)
 ggsave("hw1-scatter.png", dpi = 100, width = 7, height = 4)
 
 # Plot 2: Bar Chart
+thousand_formatter <- function(x){
+  return(sprintf("%gk", round(x / 1000, 1)))
+}
+
 barchart <- ggplot(genre_count, aes(x = reorder(genre, -count), y=count, fill=as.factor(color))) + 
   geom_bar(stat = "identity") + 
-  ggtitle("Movie count by genres") + 
+  ggtitle("Movie Count by Genres") + 
   xlab("Genre") + 
   ylab("Count") +
   theme(axis.text=element_text(family="serif", size=10),
-        axis.title=element_text(family="serif", size=12),
-        title=element_text(family="serif", size=16,face="bold")) +
+        axis.title=element_text(family="serif", size=11),
+        title=element_text(family="serif", size=15,face="bold")) +
   scale_fill_brewer(palette="RdYlGn") +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  theme(axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank()) +
+  scale_y_continuous(expand = c(0, 20),
+                     label = thousand_formatter)
 
 print(barchart)
 ggsave("hw1-bar.png", dpi = 100, width = 7, height = 4)
@@ -73,13 +82,16 @@ multiples <- ggplot(movies,
                     aes(x = budget/1000000, y = rating, group = genre, color=as.factor(color))) + 
   geom_point() +
   facet_wrap( ~ genre, ncol = 3) +
-  ggtitle("Movie ratings versus budget") +
-  xlab("Budget (Million Dollars)") + 
+  ggtitle("Movie Ratings vs Budget") +
+  xlab("Budget in Millions") + 
   ylab("Rating") +
   theme(axis.text=element_text(family="serif", size=10),
-        axis.title=element_text(family="serif", size=12),
-        title=element_text(family="serif", size=16,face="bold")) +
-  scale_colour_brewer(palette="RdYlGn", labels=genre_count$genre, name="Genre")
+        axis.title=element_text(family="serif", size=11),
+        title=element_text(family="serif", size=15,face="bold"),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank()) +
+  scale_colour_brewer(palette="RdYlGn") +
+  theme(legend.position="none")
 
 print(multiples)
 ggsave("hw1-multiples.png", dpi = 100, width = 7, height = 4)
@@ -100,8 +112,9 @@ multilines <- ggplot(new_eu,
   xlab("Time") + 
   ylab("Price") +
   theme(axis.text=element_text(family="serif", size=10),
-        axis.title=element_text(family="serif", size=12),
-        title=element_text(family="serif", size=16, face="bold")) +
+        axis.title=element_text(family="serif", size=11),
+        title=element_text(family="serif", size=15, face="bold")) +
+  scale_y_continuous(label = thousand_formatter) +
   labs(color="Index")
 
 print(multilines)

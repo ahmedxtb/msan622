@@ -39,33 +39,29 @@ In the first three movie images, movies with the same genre are assigned to the 
 ```
 
 ```R
-> movies[c("genre", "budget", "rating", "color")][sample(1:nrow(movies), 10), ]
-      genre   budget rating color
-582  Comedy    25000    8.3     4
-4483   None  1200000    4.2     3
-2887  Mixed     1000    6.5     1
-171  Action  8000000    4.1     5
-3635  Mixed  8000000    6.8     1
-3107  Mixed 20000000    5.3     1
-4208   None  3000000    6.1     3
-2467  Mixed    30000    7.5     1
-4853   None 25000000    5.6     3
-2110  Drama   175000    7.0     2
+> movies[c("genre", "budget", "rating", "color")][sample(1:nrow(movies), 6), ]
+         genre   budget rating color
+2549     Mixed 32000000    6.7     1
+346  Animation     5000    7.6     9
+3154     Mixed    17000    8.3     1
+2177     Drama 60000000    6.3     2
+3314     Mixed  8000000    7.7     1
+1603     Drama  3500000    7.6     2
 ```
 
-The color rank column was used as the colors in the images, and `scale_colour_brewer(palette="RdYlGn")` was added to limit the colors into three main colors. Therefore, the genre with more movies has redder color, the genre with less movies has greener color, and the one with median number of movies has yellow color.
+The color rank column was used as colors in the images, and `scale_colour_brewer(palette="RdYlGn")` was added to limit the colors into three main colors. Therefore, the genre with more movies has redder color, the genre with less movies has greener color, and the one with median number of movies has yellow color.
 
 ![IMAGE](hw1-scatter.png)
 
-For the scatter above, I devided the values of x-axis text by 1000000, and added "(Million Dollars)" to the x-axis label. I also changed the labels and name of the legend to make it more readable.
+For the scatter above, I devided the values of x-axis labels by 1,000,000, and added "in Millions" to the x-axis title. I also changed the labels and name of the legend to make it more readable.
 
 ![IMAGE](hw1-bar.png)
 
-For the bar chart above, to emphasize which genre has more movies, I ordered the genres by their movie counts and put the genre with more movies ahead. I also removed the legend as it provides the same color information as the bar charts, i.e. which color represents which genre. 
+For the bar chart above, to emphasize which genre has more movies, I ordered the genres by their movie counts and put the genre with more movies ahead. The legend was removed as it provides the same color information as the bar charts. I also transferred y-axis labels into "*k", and removed x-axis ticks, horizonal minor panels and all vertical panels to make the image simpler.
 
 ![IMAGE](hw1-multiples.png)
 
-For the multiple scatters above, I reordered the small scatters so that the orders of genres are consistent with those in the bar chart. Now, it is clear that the genre on the top and left has the largest number of movies, and the genre on the bottom and right has the smallest number of movies. They are also consistent with the color gradients.
+For the multiple scatters above, I reordered the small scatters so that the orders of genres are consistent with those in the bar chart. Now, it is clear that the genre on the top and left has the largest number of movies, and the genre on the bottom and right has the smallest number of movies. They are also consistent with the color gradients. Legend, horizonal and vertical minor panels were removed as well.
 
 ![IMAGE](hw1-multiline.png)
 
