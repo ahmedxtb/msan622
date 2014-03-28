@@ -41,7 +41,7 @@ movies$genre <- factor(movies$genre, levels=genre_count$genre)
 
 # Plot 1: Scatterplot
 scatterplot <- ggplot(movies, aes(x = budget/1000000, y = rating, color=as.factor(color))) + 
-  geom_point() +
+  geom_point(alpha=0.8, size=1.6) +
   ggtitle("Movie Ratings vs Budget") +
   xlab("Budget in Millions") +
   ylab("Rating") +
@@ -50,7 +50,6 @@ scatterplot <- ggplot(movies, aes(x = budget/1000000, y = rating, color=as.facto
         title=element_text(family="serif", size=15 ,face="bold")) +
   scale_colour_brewer(palette="RdYlGn", labels=genre_count$genre, name="Genre")
 
-print(scatterplot)
 ggsave("hw1-scatter.png", dpi = 100, width = 7, height = 4)
 
 # Plot 2: Bar Chart
@@ -74,13 +73,12 @@ barchart <- ggplot(genre_count, aes(x = reorder(genre, -count), y=count, fill=as
   scale_y_continuous(expand = c(0, 20),
                      label = thousand_formatter)
 
-print(barchart)
 ggsave("hw1-bar.png", dpi = 100, width = 7, height = 4)
 
 # Plot 3: Small Multiples
 multiples <- ggplot(movies, 
                     aes(x = budget/1000000, y = rating, group = genre, color=as.factor(color))) + 
-  geom_point() +
+  geom_point(alpha=0.8, size=1.5) +
   facet_wrap( ~ genre, ncol = 3) +
   ggtitle("Movie Ratings vs Budget") +
   xlab("Budget in Millions") + 
@@ -93,8 +91,7 @@ multiples <- ggplot(movies,
   scale_colour_brewer(palette="RdYlGn") +
   theme(legend.position="none")
 
-print(multiples)
-ggsave("hw1-multiples.png", dpi = 100, width = 7, height = 4)
+ggsave("hw1-multiples.png", dpi = 100, width = 7, height = 5)
 
 # Plot 4: Multi-Line Chart
 eu$new_time<-as.numeric(eu$time)
@@ -117,5 +114,4 @@ multilines <- ggplot(new_eu,
   scale_y_continuous(label = thousand_formatter) +
   labs(color="Index")
 
-print(multilines)
 ggsave("hw1-multiline.png", dpi = 100, width = 7, height = 4)

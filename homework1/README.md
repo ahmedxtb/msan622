@@ -53,7 +53,7 @@ The color rank column was used as colors in the images, and `scale_colour_brewer
 
 ![IMAGE](hw1-scatter.png)
 
-For the scatter above, I devided the values of x-axis labels by 1,000,000, and added "in Millions" to the x-axis title. I also changed the labels and name of the legend to make it more readable.
+For the scatter above, I devided the values of x-axis labels by 1,000,000, and added "in Millions" to the x-axis title. I changed the labels and name of the legend to make it more readable. I also changed the transparency and size of the points.
 
 ![IMAGE](hw1-bar.png)
 
