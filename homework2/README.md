@@ -36,8 +36,6 @@ The basic scatterplot shows the scatterplot of IMDB ratings versus movie budgets
 - Put the filtered dots on the front of grey dots so that users can clearly see the dots they filtered.
 - Adjusted positions of color select box, dot size and dot alpha sliders to the right of the plot. Therefore, all the controls and image stay in one screen, and users do not need to roll down to choose the options.
 
-![IMAGE](detail1.png)
-
 ### Customization ###
 
 #### Multiple Scatterplots ####
