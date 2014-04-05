@@ -17,7 +17,7 @@ To run this code, please enter the following commands in R:
 
 ```
 library(shiny)
-shiny::runGitHub('msan622', 'doraw880', 'homework2')
+shiny::runGitHub('msan622', 'doraw880', subdir='homework2')
 ```
 
 This will start the `shiny` app. See below for details on how to interact with the visualization.
