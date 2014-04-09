@@ -1,10 +1,10 @@
 MSAN 622 Data Visualization
 ==============================
 
-| **Name**  | [YOUR NAME] |
+| **Name**  | Weiran (Dora) Wang |
 |----------:|:------------|
-| **Email** | [USERNAME]@dons.usfca.edu |
+| **Email** | wwang48@dons.usfca.edu |
 
 ## About Me ##
 
-[BIO: Fill in a brief bio about yourself here. Keep it between 1 and 3 sentences.]
+I like cartoons. I also like nice plots which could present the data in an informative and concise way. 
