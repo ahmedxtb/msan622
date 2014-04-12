@@ -58,7 +58,9 @@ From Parallel Coordinates Plot, I put the maximum and minimum values of each fea
 
 ### Interactivity ###
 
-Users could choose the forms of interactivity: Brush, Filter or Zoom. They can also select the range of three features. 
+Users could choose the forms of interactivity: Brush, Filter or Zoom. They can also select the range of "Population", "Income" and "Life Exp.". 
+
+For "Brush", the filtered-out data will be assigned to grey in the data set, while they will be white when users choose "Filter" (the same color as background so that they will hide in the background). If users choose "Zoom", the `xlim` and `ylim` are assigned according to the ranges. In this way, the points (in the bubble plot and scatter plots)/lines(in the parallel coordinates plot) are reletively separate from each other in the range so that we could see the distributions more clearly in this particular area.
 
 ![IMAGE](Bubble_Brush.png)
 ![IMAGE](Bubble_Filter.png)
