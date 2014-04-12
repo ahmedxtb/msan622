@@ -48,11 +48,18 @@ For Scatterplot Matrix, I removed the plots on the right and up side which are t
 ### Technique 3: Parallel Coordinates Plot ###
 ![IMAGE](Parallel_Whole.png)
 
-From the Parallel Coordinates Plot, we could visualize the data with more than 2 dimensions.
+From the Parallel Coordinates Plot, we could visualize the data with more than 2 dimensions in just one plot. From this plot, its hard for us to find the relationship.
 
 ![IMAGE](Parallel_Whole2.png)
 
+When we only choose region South and region North Central, we could clearly see two clusters here.
+
+From Parallel Coordinates Plot, I put the maximum and minimum values of each feature on the vertical lines. I also added the border of the legend.
+
 ### Interactivity ###
+
+Users could choose the forms of interactivity: Brush, Filter or Zoom. They can also select the range of three features. 
+
 ![IMAGE](Bubble_Brush.png)
 ![IMAGE](Bubble_Filter.png)
 ![IMAGE](Bubble_Zoom.png)
