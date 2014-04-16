@@ -9,9 +9,9 @@ Project: Dataset
 
 ### Clean Data ###
 
-I downloaded 6 data sets from the websites. They are "Life.Exp", "Fertility.Rate", "Birth.Rate", "Death.Rate", "Population" and "Country.Map". I need to combine them to a single data set for later use. I took the following steps to merge them together.
+I downloaded 5 data sets from World Bank. They are "Life.Exp", "Fertility.Rate", "Birth.Rate", "Death.Rate" and "Population". I need to combine them to a single data set for later use. I took the following steps to merge them together.
 
-- For each data set (except "Country.Map" which has different structure), I filtered out all the rows which contains any NAs. I also removed useless columns such as "Indicator.Code".
+- For each data set, I filtered out all the rows which contains any NAs. I also removed useless columns such as "Indicator.Code".
 - The original data set includes all the year variables. I added a "year" variable, and converted each row from the original data set into a vertical way.
 
 ```
@@ -36,8 +36,8 @@ X1964        Aruba          ABW 1964     30.737
 X1965        Aruba          ABW 1965     29.413
 ```
 
-- The data sets have a similar structure, so I merged them together by "Country.Name", "Country.Code" and "year"
-- "Country.Map" includes information such as region and income group for each country. Finally, I combined "Country.Map" to the data set. The cleaned data is shown as follows.
+- The data sets have a similar structure, so I took the same steps above for each data set and merged them together by "Country.Name", "Country.Code" and "year" to a big data set.
+- Finally, I combined "Country.Map" to the data set. "Country.Map" includes information such as region and income group for each country. The final cleaned data is shown as follows.
 
 ```
 > head(combined.data)
