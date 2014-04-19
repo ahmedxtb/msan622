@@ -55,21 +55,21 @@ Finally, I combined two data sets together using `merge` function. The final dat
 9079    man     52 0.3167834    123 0.4690181
 ```
 
-### Bar Chart ###
+### Plot 1. Bar Chart ###
 ![IMAGE](bar_plot.png)
 
 I first created a bar chart to compare proportions of top 10 common words in 80s' and 90s' movie titles. I removed the background color, axis ticks and all the panel grid to increase the data-ink ratio. I also put the legend in the right top of the plot to save some space. I made the bin width as 0.8 to increase the data density. The lie factor of this plot is 1 as the height/area of each bar is proportional to the data.
 
 As shown in the bar chart, "night", "del", "der", "blood" and "dream" appear more frequently in 80s' movie titles than 90s', while "love" and "man" are more frequent in 90s' movie titles. The proportion of word "die" didn't change a lot from 80s to 90s.
 
-### Scatter Plot ###
+### Plot 2. Scatter Plot ###
 ![IMAGE](freq_plot.png)
 
 I also created a scatter plot to compare proportions of top 10 common words in 80s' and 90s' movie titles. I removed the background color, axis ticks and all the panel grid to increase the data-ink ratio. I made the dot size as 5 to increase the data density. The x-axis and y-axis are in the same scale, so the lie factor of this plot is also 1. I also adjusted the position of word texts to the right of the dots for easier reading.
 
 As shown in the scatter plot, "love" and "man" appear frequently in 90s' movie titles, while "night" appears frequently in 80s' movie titles, which is consistent with bar chart.
 
-### Word Cloud ###
+### Plot 3. Word Cloud ###
 ![IMAGE](word_cloud.png)
 
 I created word cloud to show the most common words in 80s and 90s' movie titles. Bigger word means higher frequency. I changed the family font and color for the words to keep the consistency with other plots. However, in this way, the words in grey colors catch more attention than those in light blue colors, which will mislead viewers. Besides, word with more letters look bigger than that with fewer letters, which will also mislead viewers. Therefore, the lie factor of this plot is not close to one.
