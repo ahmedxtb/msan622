@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Project: Dataset</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Project: Dataset</h1>
+
+<table><thead>
+<tr>
+<th align="right"><strong>Name</strong></th>
+<th align="left">Dora (Weiran) Wang</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="right"><strong>Email</strong></td>
+<td align="left"><a href="mailto:wwang48@dons.usfca.edu">wwang48@dons.usfca.edu</a></td>
+</tr>
+</tbody></table>
+
+<h2>Discussion</h2>
+
+<h3>Clean Data</h3>
+
+<p>I downloaded 5 data sets from World Bank. They are &ldquo;Life.Exp&rdquo;, &ldquo;Fertility.Rate&rdquo;, &ldquo;Birth.Rate&rdquo;, &ldquo;Death.Rate&rdquo; and &ldquo;Population&rdquo;. I need to combine them to a single data set for later use. I took the following steps to merge them together.</p>
+
+<ul>
+<li>For each data set, I filtered out all the rows which contains any NAs. I also removed useless columns such as &ldquo;Indicator.Code&rdquo;.</li>
+<li>The original data set includes all the year variables. I added a &ldquo;year&rdquo; variable, and converted each row from the original data set into a vertical way.</li>
+</ul>
+
+<pre><code>&gt; head(Birth.Rate[, c(1,2, 5:8)]) # original data
+  Country.Name Country.Code    X1960    X1961   X1962   X1963
+1        Aruba          ABW 35.67900 34.52900 33.3200 32.0500
+2      Andorra          AND       NA       NA      NA      NA
+3  Afghanistan          AFG 53.73000 53.72600 53.7150 53.6960
+4       Angola          AGO 54.48700 54.43600 54.3460 54.2130
+5      Albania          ALB 42.24000 41.26600 40.2290 39.1860
+6   Arab World          ARB 48.06425 47.77806 47.4754 47.1513
+</code></pre>
+
+<pre><code>&gt; head(Birth.Rate.new) # converted data
+      Country.Name Country.Code year Birth.Rate
+X1960        Aruba          ABW 1960     35.679
+X1961        Aruba          ABW 1961     34.529
+X1962        Aruba          ABW 1962      33.32
+X1963        Aruba          ABW 1963      32.05
+X1964        Aruba          ABW 1964     30.737
+X1965        Aruba          ABW 1965     29.413
+</code></pre>
+
+<ul>
+<li>The data sets have a similar structure, so I took the same steps above for each data set and merged them together by &ldquo;Country.Name&rdquo;, &ldquo;Country.Code&rdquo; and &ldquo;year&rdquo; to a big data set.</li>
+<li>Finally, I combined &ldquo;Country.Map&rdquo; to the data set. &ldquo;Country.Map&rdquo; includes information such as region and income group for each country. The final cleaned data is shown as follows.</li>
+</ul>
+
+<pre><code>&gt; head(combined.data)
+  Country.Code                    Region          IncomeGroup Country.Name year Birth.Rate Death.Rate Fertility.Rate    Life.Exp Population
+1          ABW Latin America &amp; Caribbean High income: nonOECD        Aruba 1980     22.473      6.376          2.392 72.22014634      60096
+2          ABW Latin America &amp; Caribbean High income: nonOECD        Aruba 1981     22.424      6.445          2.377 72.46234146      60567
+3          ABW Latin America &amp; Caribbean High income: nonOECD        Aruba 1982      22.33      6.519          2.364 72.67319512      61344
+4          ABW Latin America &amp; Caribbean High income: nonOECD        Aruba 1983     22.188      6.603          2.353 72.84902439      62204
+5          ABW Latin America &amp; Caribbean High income: nonOECD        Aruba 1984     21.989      6.694          2.342  72.9897561      62831
+6          ABW Latin America &amp; Caribbean High income: nonOECD        Aruba 1985     21.727      6.786          2.332 73.09797561      63028
+</code></pre>
+
+</body>
+
+</html>
+
