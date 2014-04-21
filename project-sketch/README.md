@@ -9,9 +9,9 @@ Project: Sketch
 
 ### Planned Tools ###
 
-`R`
-`ggplog2`
-`shiny`
+- `R`
+- `ggplog2`
+- `shiny`
 
 ### Planned Techniques ###
 
